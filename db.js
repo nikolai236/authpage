@@ -1,6 +1,5 @@
 const mysql = require('mysql2');
 
-
 class DBConnection{
     constructor(){
         this.db = mysql.createPool({
@@ -28,15 +27,14 @@ class DBConnection{
 
     query = async (sql, values) => {
         return new Promise((resolve, reject) => {
-            //console.log(this);
+
             const cb = (error, result) => {
                 if(error){
                     console.log(error);
                     reject(error);
                     return;
                 }
-                console.log(result);
-                console.log('done');
+
                 resolve(result);
             }
             this.db.execute(sql, values, cb);
