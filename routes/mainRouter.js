@@ -1,7 +1,8 @@
-const router = require('express').Router();
-const mainController = require('../controllers/mainController');
-const auth = require('../middleware/auth');
+const router = require('express').Router()
 
-router.get('/home', auth, mainController.home);
+const mainController = require('../controllers/mainController')
+const auth = require('../middleware/auth')
 
-module.exports = router;
+router.get('/home', auth, mainController.home)
+
+module.exports = router

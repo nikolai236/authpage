@@ -1,13 +1,33 @@
 const multipleColumnSets = (obj) => {
-    const keys = Object.keys(obj);
-    const values = Object.values(obj);
+  const keys = Object.keys(obj)
+  const values = Object.values(obj)
 
-    const columnSet = keys.map(key => `${key} = ?`).join(', ');
+  const columnSet = keys.map(key => `${key} = ?`).join(', ')
 
-    return {
-        values,
-        columnSet,
-    }
+  return {
+    values,
+    columnSet
+  }
 }
 
-module.exports = multipleColumnSets;
+const insertData = (obj) => {
+  const keys = Object.keys(obj)
+  const values = Object.values(obj)
+
+  const setData = `(${keys
+    .map(key => `${key}`)
+    .join(', ')}) VALUES (${
+      keys
+      .map(key => '?')
+      .join(', ')})`
+
+  return {
+    values,
+    setData
+  }
+}
+
+module.exports = {
+  multipleColumnSets,
+  insertData
+}
