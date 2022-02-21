@@ -1,30 +1,21 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 const useForms = ({ initialValues }) => {
-    const [ values, setValues ] = useState(initialValues);
+  const [values, setValues] = useState(initialValues)
 
-    const handleChange = (e) => {
-        e.persist();
+  const handleChange = (e) => {
+    e.persist()
 
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value,
-        });
-    }
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+  }
 
-    // const validate = (e) => {
-    //     switch(e.target.name) {
-    //         case 'username':
-    //             return (() => {
-
-    //             })();
-    //     }
-    // }
-
-    return {
-        handleChange,
-        values,
-    }
+  return {
+    handleChange,
+    values
+  }
 }
 
-export default useForms;
+export default useForms

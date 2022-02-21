@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export default function AppError(props) {
-    return (
-        <div>
-            <label>{props.message}</label>
-        </div>
-    );
+export default function AppError (props) {
+  return (
+    <div>
+      <label>{props.message}</label>
+    </div>
+  )
 }
